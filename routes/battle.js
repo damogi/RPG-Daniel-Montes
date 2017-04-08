@@ -12,7 +12,7 @@ router.post('/:winnerId/:losserId', function(req,res){
     var pointsForWinner = req.body.pointsForWinner;
     var pointsForLosser = req.body.pointsForLosser;
 
-    query = 'SELECT "player_id", "score" FROM "leaderboard" WHERE "player_id" = 1 OR player_id = 2;';
+    query = 'SELECT "player_id", "score" FROM "leaderboard" WHERE "player_id" = ({0}) OR player_id = ({1});';
     query = query.replace('{0}', winnerId);
     query = query.replace('{1}', losserId);
 
